@@ -13,7 +13,7 @@ Also runs /bin/sh so you get a shell when you run `docker run -it...` (you can d
 
 The root password is 'root' :P 
 
-By default, root only has permissions on localhost
+By default, root only has permissions on localhost (in the container)
 
 You can run additional sql files by putting them in the sql/ directory and passing them as entrypoint args:
 
