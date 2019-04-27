@@ -37,6 +37,8 @@ python connect.py
 
 Which should create the table test.foo
 
+TODO: Use persistent volume
+
 TODO: Beef up security... encryption? keys?
 
 TODO: Add more config options - e.g. accept a my.cnf file
