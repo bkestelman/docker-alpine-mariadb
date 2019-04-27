@@ -9,7 +9,7 @@ docker run -it mariadb
 
 Installs, initializes, and starts MariaDB server. 
 
-Also runs /bin/sh so you get a shell when you run `docker run -it...`
+Also runs /bin/sh so you get a shell when you run `docker run -it...` (you can detach from the container with ctrl+p,ctrl+q or use `docker run -it -d...` to detach immediately)
 
 The root password is 'root' :P 
 
