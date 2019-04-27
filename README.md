@@ -2,13 +2,41 @@
 
 Need a database real quick? Here's one!
 
-:warning: This project is under construction. Don't expect it to be highly secure! :warning:
+```
+docker build -t mariadb .
+docker run -it mariadb
+```
 
-Runs MariaDB's mysqld, then runs /bin/sh so you can access the container with `docker run -it...`
+Installs, initializes, and starts MariaDB server. 
 
-Currently, to finish the MariaDB setup, you need to run `./startup.sh` in the container before accessing the mysql client with `mysql -u root -p`  
+Also runs /bin/sh so you get a shell when you run `docker run -it...`
 
-The root password is root :P
+The root password is 'root' :P 
 
-No configuration has been set besides the bare minimum to get MariaDB working.
+By default, root only has permissions on localhost
 
+You can run additional sql files by putting them in the sql/ directory and passing them as entrypoint args:
+
+```
+docker run -it mariadb sql/*
+```
+
+Files you want to run this way must go in the sql/ directory. 
+
+As an example, you can try:
+
+```
+docker run -it mariadb sql/open_remote.sql
+```
+
+Which will grant permissions to root from the docker host. You can test with the python script:
+
+```
+python connect.py
+```
+
+Which should create the table test.foo
+
+TODO: Beef up security... encryption? keys?
+
+TODO: Add more config options - e.g. accept a my.cnf file
